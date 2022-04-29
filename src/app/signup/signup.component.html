@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div style="width:50% ; margin:auto; background-color:#e5e3e3; ">
+        <div style="width:70%; margin: auto">
+          <form [formGroup]="signupForm">
+        <h1>Signup here</h1>
+        <div *ngIf="responseError" class="form-group mt-3">
+          <label class="alert alert-danger" >{{responseError}}</label>
+      </div>
+        <div class="form-group mt-3">
+            <label for="">Name</label>
+            <input formControlName="a" type="text" class="form-control">
+        </div>
+        <div class="form-group mt-3">
+            <label for="">Email</label>
+            <input formControlName="b" type="text" class="form-control">
+            <!-- [(ngModel)]="userdetails.email" -->
+        </div>
+        <div class="form-group mt-3">
+            <label for="">Pasword</label>
+            <input formControlName="c" type="Password" class="form-control">
+            <!-- [(ngModel)]="userdetails.password" -->
+        </div>
+        <div class="form-group mt-3">
+           <button (click)="signup()" class ="btn btn-primary">Signup</button>
+        </div>
+      </form>
+    </div>
+ 
+    </div>
+    <!-- <table *ngIf="true" class="table">
+        <thead>
+          <tr>
+           
+            <th scope="col">Email</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+           <td>{{user.email}}</td>
+           <td>{{user.name}}</td>
+           <td><button (click)="deleteUser(i)" class="btn btn-danger">Delete</button></td>
+          </tr>
+         
+        </tbody>
+      </table> -->
+</div>

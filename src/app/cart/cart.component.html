@@ -1,0 +1,39 @@
+<div class=" container">
+    <h1 class="mt-5">Your Cart</h1>
+    <div class="mt-5" *ngIf="cartitems.length">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartitems; let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.name}}</td>
+                    <td><img style="height:60px;width:60px" [src]="item.image"></td>
+                    <td>{{item.price}}</td>
+                    <td><button (click)="increasequantity(i)" class="btn btn-success">+</button> {{item.quantity}} <button
+                            (click)="decreasequantity(i)" [disabled]="item.quantity==1" class="btn btn-success">-</button></td>
+                    <td>{{item.price*item.quantity}}</td>
+                            <td><button (click)="removeItemFromCart(i)" class="btn btn-danger">
+                            <fa-icon [icon]="faTrash"></fa-icon>
+                        </button></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div>
+            Total Price: {{totalprice}}
+            <button class="btn btn-warning" (click)="checkout()" routerLink="/checkout" style="float:right">Checkout</button>
+        </div>
+
+    </div>
+</div>

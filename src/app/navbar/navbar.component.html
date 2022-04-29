@@ -1,0 +1,48 @@
+<style>
+  /* Modify the background color */
+   
+  .navbar-custom {
+      background-color: rgb(190, 186, 118);
+  }
+  /* Modify brand and text color */
+   
+  .navbar-custom .navbar-brand,
+  .navbar-custom .navbar-text {
+      color: rgb(0, 0, 0);
+  }
+</style>
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" routerLink="/"><fa-icon [icon]="faCakeCandles"></fa-icon> {{ projecttitle }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+      <form class="d-flex">
+        <input [(ngModel)]="searchtext" name="search" class="form-control me-2" type="search" placeholder="Search"
+          aria-label="Search">
+        <button (click)="search()" class="btn btn-success" type="submit"><fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+      </form>
+ </ul> 
+      <div class=" d-flex">
+        <a *ngIf="isAdmin" class="navbar-brand"  routerLink="/addcake">Add new Item</a>
+        <button *ngIf="!isloggedin" routerLink="/login" class="btn btn-success" type=" submit"> Login</button>
+        <button style="margin-right: 20px;" routerLink="/cart" *ngIf="isloggedin" class="btn btn-warning position-relative mr-5">Cart <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{length}}
+        </span><fa-icon [icon]="faCartShopping"></fa-icon></button>        
+        <button *ngIf="isloggedin" class="btn btn-danger ml-5" (click)="logout()">Logout   <fa-icon [icon]="faSignout"></fa-icon></button>
+      </div>
+    </div>
+  </div>
+</nav>
